@@ -2,6 +2,7 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const methodOverrid = require('method-override')
 const session = require('express-session')
+const usePassport = require('./config/passport')
 const routes = require('./routes') //引入./routes後會自動抓取該目錄下名為index的檔案
 require('./config/mongoose')
 
@@ -29,6 +30,9 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }))
+
+// 載入passport設定檔(必須在express-session之後)
+usePassport(app)
 
 
 app.use(routes)
