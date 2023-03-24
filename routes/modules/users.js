@@ -5,12 +5,12 @@ const router = express.Router()
 router.get('/login', (req, res) => { res.render('login') })
 
 // 登入處理
-router.post('login',)
+router.post('/login',)
 
+// 註冊頁面
+router.get('/register', (req, res) => {res.render('register')})
 
-
-
-
+// 註冊處理
 
 
 
