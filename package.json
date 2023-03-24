@@ -17,9 +17,11 @@
     "body-parser": "^1.20.1",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
+    "express-session": "^1.17.3",
     "font-awesome": "^4.7.0",
     "method-override": "^3.0.0",
-    "mongoose": "^6.8.4"
+    "mongoose": "^6.8.4",
+    "passport": "^0.6.0"
   },
   "devDependencies": {
     "dotenv": "^16.0.3"

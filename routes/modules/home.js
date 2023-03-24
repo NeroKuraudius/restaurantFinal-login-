@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
   Restaurant.find()
     .lean()
     .sort({ _id: 'asc' }) //asc：正向排列(反向為desc)
-    .then(restaurants => res.render("index", { restaurants }))
+    .then(restaurants => res.render('index', { restaurants }))
     .catch(error => console.log(error))
 })
 

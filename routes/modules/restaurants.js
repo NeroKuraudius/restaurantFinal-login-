@@ -1,18 +1,17 @@
 // 網址帶有'/restaurants'時進入
 
 const express = require('express')
-const app = express()
 const router = express.Router()
 const Restaurant = require('../../models/Restaurant')
 
 
 // 新增頁面
-router.get("/new", (req, res) => { res.render("new") })
+router.get('/new', (req, res) => { res.render('new') })
 
 // 新增餐廳資料
-router.post("/", (req, res) => {
+router.post('/', (req, res) => {
   Restaurant.create(req.body)
-    .then(() => res.redirect("/"))
+    .then(() => res.redirect('/'))
     .catch(err => console.log(err))
 })
 
