@@ -10,7 +10,8 @@ const selected = require('../../public/javascripts/selectedValue')
 
 //首頁渲染
 router.get('/', (req, res) => {
-  Restaurant.find()
+  const userId = req.user._id
+  Restaurant.find({userId})
     .lean()
     .sort({ _id: 'asc' }) //asc：正向排列(反向為desc)
     .then(restaurants => res.render('index', { restaurants }))

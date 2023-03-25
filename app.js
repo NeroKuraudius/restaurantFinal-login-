@@ -34,6 +34,8 @@ app.use(session({
 // 載入passport設定檔(必須在express-session之後)
 usePassport(app)
 
+// 新增res.locals變數
+
 
 app.use(routes)
 

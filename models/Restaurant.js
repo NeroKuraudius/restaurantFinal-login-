@@ -12,6 +12,10 @@ const restaurantSchema = new Schema({
   google_map: { type: String, required: true },
   rating: { type: Number, required: true },
   description: { type: String, required: true },
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: 'User', index: true, required: true
+  }
 })
 
 // 匯出資料庫綱要作為module
