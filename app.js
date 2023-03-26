@@ -8,7 +8,11 @@ const routes = require('./routes') //引入./routes後會自動抓取該目錄�
 require('./config/mongoose')
 
 const app = express()
-const port = 3000
+const port = process.env.PORT
+
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 
 
 // 設定固定樣板
@@ -27,7 +31,7 @@ app.use(methodOverrid('_method'))
 
 // 設定session
 app.use(session({
-  secret: 'ThisIsMySecret',
+  secret: process.env.SESSTION_SECRET,
   resave: false,
   saveUninitialized: true
 }))
@@ -39,7 +43,7 @@ usePassport(app)
 app.use(flash())
 
 // 傳入res.locals變數
-app.use((req,res,next)=>{
+app.use((req, res, next) => {
   res.locals.isAuthenticated = req.isAuthenticated()
   res.locals.success_msg = req.flash('success_msg')
   res.locals.warning_msg = req.flash('warning_msg')
