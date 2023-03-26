@@ -33,12 +33,25 @@
 
 ## 使用：
 1.請先安裝node.js及npm
+
+
 2.將本專案clone至本地
+
+
 3.透過終端機輸入
+
 npm install
+
 4.安裝完畢後輸入
+
 npm run start
+
+
 5.若看見以下訊息表示運作成功，請進入以下網址
+
 Listening on http://localhost:3000
+
+
 6.停止請輸入兩次
+
 ctrl + C
