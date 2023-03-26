@@ -1,7 +1,6 @@
 const passport = require('passport')
 const bcrypt = require('bcryptjs')
 const User = require('../models/User')
-const { framework } = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 const FBStrategy = require('passport-facebook').Strategy
 
@@ -18,7 +17,7 @@ module.exports = app => {
         if (!user) {
           return done(null, false, req.flash('warning_msg', 'This email did not register yet.'))
         }
-        return bcrypt.compare(password, user.password) // bcrypt.compare 的回傳值為true/flase
+        return bcrypt.compare(password, user.password)  // bcrypt.compare 的回傳值為true/flase
           .then(isMatch => {
             if (!isMatch) {
               return done(null, false, req.flash('warning_msg', 'Email or  password is incorrect!'))

@@ -1,27 +1,36 @@
-餐廳清單
+# 餐廳清單
 
 
-功能介紹：
-可查看所有餐廳
-點選餐廳可瀏覽詳細內容
-可依關鍵字搜尋餐廳名稱或類別
-可依選取方式排序
-可新增餐廳資料
-可編輯特定餐廳資料
-可刪除單筆資料
+## 功能介紹：
+#### 需登入才可使用
+#### 可以註冊新帳號或用FB登入
+#### 可查看所有餐廳
+#### 點選餐廳可瀏覽詳細內容
+#### 可依關鍵字搜尋餐廳名稱或類別
+#### 可依選取方式排序
+#### 可新增餐廳資料
+#### 可編輯特定餐廳資料
+#### 可刪除單筆資料
 
 
-需求工具：
-Node.js 18.12.1
-mongoose 6.8.4
-Express 4.16.4
-Express-handlebars 3.0.0
-method-override 3.0.0
-Bootstrap 5.2.1
-Font-awesome 4.7.0
+## 需求工具：
+#### Node.js 18.12.1
+#### Express 4.16.4
+#### Express-handlebars 3.0.0
+#### Express-session 1.17.3
+#### MongoDB
+#### mongoose 6.8.4
+#### method-override 3.0.0
+#### Bcryptjs 2.4.3
+#### Connect-flash 0.1.1
+#### Passport 0.6.0
+#### Passport-facebook 3.0.0
+#### Passport-local 1.0.0
+#### Bootstrap 5.2.1
+#### Font-awesome 4.7.0
 
 
-使用：
+## 使用：
 1.請先安裝node.js及npm
 2.將本專案clone至本地
 3.透過終端機輸入
