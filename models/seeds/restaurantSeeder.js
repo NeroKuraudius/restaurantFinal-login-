@@ -8,9 +8,14 @@ const User = require('../User')
 const Restaurant = require('../Restaurant.js')
 const restaurantList = require('../../restaurant.json').results
 const SEED_USER = {
-  name: 'test',
-  email: 'test@gmail.com',
-  password: 'test'
+  user1: {
+    email: 'user1@example.com',
+    password: '12345678'
+  },
+  user2: {
+    email: 'user2@example.com',
+    password: '12345678'
+  }
 }
 
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -20,18 +25,18 @@ db.on('error', () => {
   console.log('mongodb error!')
 })
 
+
 db.once('open', () => {
   bcrypt.genSalt(10)
-    .then(salt => bcrypt.hash(SEED_USER.password, salt))
+    .then(salt => bcrypt.hash(SEED_USER.user1.password, salt))
     .then(hash => User.create({
-      name: SEED_USER.name,
-      email: SEED_USER.email,
+      email: SEED_USER.user1.email,
       password: hash
     }))
     .then(user => {
       const userId = user._id
       return Promise.all(Array.from(
-        { length: restaurantList.length },
+        { length: 3 },
         (_, i) => Restaurant.create({
           name: restaurantList[`${i}`].name,
           name_en: restaurantList[`${i}`].name_en,
@@ -42,6 +47,31 @@ db.once('open', () => {
           google_map: restaurantList[`${i}`].google_map,
           rating: restaurantList[`${i}`].rating,
           description: restaurantList[`${i}`].description,
+          userId
+        })
+      ))
+    })
+
+  bcrypt.genSalt(10)
+    .then(salt => bcrypt.hash(SEED_USER.user2.password, salt))
+    .then(hash => User.create({
+      email: SEED_USER.user2.email,
+      password: hash
+    }))
+    .then(user => {
+      const userId = user._id
+      return Promise.all(Array.from(
+        { length: 3 },
+        (_, i) => Restaurant.create({
+          name: restaurantList[`${i + 3}`].name,
+          name_en: restaurantList[`${i + 3}`].name_en,
+          category: restaurantList[`${i + 3}`].category,
+          image: restaurantList[`${i + 3}`].image,
+          location: restaurantList[`${i + 3}`].location,
+          phone: restaurantList[`${i + 3}`].phone,
+          google_map: restaurantList[`${i + 3}`].google_map,
+          rating: restaurantList[`${i + 3}`].rating,
+          description: restaurantList[`${i + 3}`].description,
           userId
         })
       ))

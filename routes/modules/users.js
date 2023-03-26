@@ -18,8 +18,8 @@ router.post('/register', (req, res) => {
   const { name, email, password, confirmPassword } = req.body
   const errors = []
 
-  if (!name || !email || !password || !confirmPassword) {
-    errors.push({ message: 'All of the blanks is required.' })
+  if (!email || !password || !confirmPassword) {
+    errors.push({ message: 'Please fill all of the required blanks.' })
   }
 
   if (password !== confirmPassword) {
